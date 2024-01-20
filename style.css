@@ -7,6 +7,11 @@
     font-family: "Open Sans", sans-serif;
 }
 
+.bg-dark{
+    background-color: #141414 !important;
+}
+
+
 /* RIGHT NAVBAR */
 
 #top_logo{
@@ -64,6 +69,16 @@
     pointer-events: none;
 }
 
+#dropdown_account>.dropdown-menu{
+    transform: translateX(-80%);
+}
+
+@media (max-width: 768px){
+    #left_nav>div{
+        display: none;
+    }
+}
+
 /* SEZIONE NETFLIX */
 
 #page_section{
@@ -88,9 +103,7 @@
 /* CAROSELLO */
 
 @media (max-width: 767px) {
-    .carousel-inner .carousel-item > div {
-        display: none;
-    }
+    
     .carousel-inner .carousel-item > div:first-child {
         display: block;
     }
@@ -126,9 +139,60 @@
     border: none;
     border-radius: 0;
     padding: 2px;
-    background-color: transparent;
+    background-color: #141414;
 }
 
-.carousel-inner>.carousel-item{
-    scroll-behavior: smooth;
+.card-img:hover{
+    transition: transform 0.7s ease-in-out;
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+.carousel-inner{
+    overflow: visible;
+}
+
+.carousel-control-prev.bg-transparent.w-aut{
+    width: 30px;
+    transform: translateX(25px);
+}
+
+.carousel-control-next.bg-transparent.w-aut{
+    width: 30px;
+    transform: translateX(-25px);
+}
+
+/* .container-fluid.mb-3.mt-5{
+    opacity: 0;
+} */
+
+/* SCROLL SHOW/HIDE */
+
+.carousel-show{
+    animation: show 3s forwards;
+}
+
+@keyframes show { 
+    0% {opacity: 0;}
+  
+    100% {opacity: 1;}
+  }
+
+
+
+/* FOOTER */
+
+#link_social>a,
+#link_netflix_footer .list-group a,
+#society{
+    color: #e0dfdf;
+    text-decoration-line: none;
+    font-size: 10px;
+}
+
+.btn.btn-outline-light{
+    color: #e0dfdf;
+    border-color: #e0dfdf;
+    border-radius: 0;
+    font-size: 10px;
 }
