@@ -16,17 +16,22 @@ items.forEach((el) => {
 
 // SCROLL UP/DOWN
 
-let carousels = document.querySelectorAll("#first_carousel_section,#second_carousel_section,#third_carousel_section");
+let carousel = document.querySelectorAll("#first_carousel_section,#second_carousel_section,#third_carousel_section");
 
-window.onscroll = () => {
-    carousels.forEach(carousel => {
-        let top = window.scrollY;
-        let offset = carousel.offsetTop - 150;
-        let height = carousel.offsetHeight;
-
-        if (top >= offset && top < offset + height){
-            carousel.classList.add(".carousel-show");
-        } else {
-            carousel.classList.remove(".carousel-show"); }
+let callback = function(items){
+    items.forEach((item)=>{
+        if(item.isIntersecting){
+            item.target.classList.add('show');
+        }else {
+            item.target.classList.remove('show')
+          }
     })
 }
+
+let observer = new IntersectionObserver(callback, {threshold: 0.5});
+
+carousel.forEach((element) =>{
+
+    observer.observe(element);
+});
+
